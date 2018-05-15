@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tarea2;
+package embarcacion;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,18 +13,24 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author moiminme
+ * @author Moga
  */
-public class Tarea2 extends Application {
+public class Embarcacion extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
         
         Scene scene = new Scene(root);
-        
+        stage.setTitle("NMEA Viewer");
         stage.setScene(scene);
+        stage.setResizable(false);
+        stage.setTitle("");
+        stage.setMaxHeight(480);
+        stage.setMaxWidth(800);
         stage.show();
+        
+        
     }
 
     /**

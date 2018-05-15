@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="237.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="230.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+   <children>
+      <PieChart prefHeight="273.0" prefWidth="267.0" />
+      <Slider fx:id="slider" GridPane.columnIndex="2" GridPane.rowIndex="2">
+         <padding>
+            <Insets left="10.0" right="10.0" />
+         </padding>
+      </Slider>
+      <LineChart fx:id="dir_v" title="Direccion del viento" GridPane.columnIndex="2">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <LineChart fx:id="int_v" title="Intensidad del viento" GridPane.columnIndex="2" GridPane.rowIndex="1">
+         <xAxis>
+            <CategoryAxis side="BOTTOM" />
+         </xAxis>
+         <yAxis>
+            <NumberAxis side="LEFT" />
+         </yAxis>
+      </LineChart>
+      <GridPane GridPane.rowIndex="2">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#vientoclk" text="Viento" />
+            <Button mnemonicParsing="false" onMouseClicked="#dirclk" text="Direccion" GridPane.columnIndex="1" />
+            <Button mnemonicParsing="false" onMouseClicked="#coordclk" text="Coordenadas" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      <CheckBox mnemonicParsing="false" text="Modo nocturno" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+      <PieChart fx:id="twd" title="TWD" />
+      <PieChart fx:id="awa" title="AWA" GridPane.columnIndex="1" />
+      <Text fx:id="tit_dat3" strokeType="OUTSIDE" strokeWidth="0.0" text="TWS" GridPane.rowIndex="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="tit_dat4" strokeType="OUTSIDE" strokeWidth="0.0" text="AWS" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text fx:id="dato4" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fx:id="dato3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+   </children>
+</GridPane>
