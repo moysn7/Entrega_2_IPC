@@ -1,25 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.effect.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #01DF3A;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="237.0" />
-      <ColumnConstraints hgrow="SOMETIMES" maxWidth="252.0" minWidth="10.0" prefWidth="230.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="228.0" minWidth="10.0" prefWidth="228.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="229.0" />
+      <ColumnConstraints hgrow="SOMETIMES" maxWidth="343.0" minWidth="10.0" prefWidth="343.0" />
   </columnConstraints>
   <rowConstraints>
-      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="230.0" minHeight="10.0" prefHeight="223.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="222.0" minHeight="10.0" prefHeight="204.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <cursor>
       <Cursor fx:constant="HAND" />
@@ -39,7 +44,7 @@
             <NumberAxis side="LEFT" />
          </yAxis>
       </LineChart>
-      <LineChart fx:id="int_v" title="Intensidad del viento" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <LineChart fx:id="int_v" prefHeight="181.0" prefWidth="252.0" title="Intensidad del viento" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <xAxis>
             <CategoryAxis side="BOTTOM" />
          </xAxis>
@@ -63,19 +68,41 @@
          </children>
       </GridPane>
       <CheckBox mnemonicParsing="false" text="Modo nocturno" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-      <PieChart fx:id="twd" title="TWD" />
-      <PieChart fx:id="awa" title="AWA" GridPane.columnIndex="1" />
-      <Text fx:id="tit_dat3" strokeType="OUTSIDE" strokeWidth="0.0" text="TWS" GridPane.rowIndex="1">
+      <Text fx:id="dato3" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="18.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
       </Text>
-      <Text fx:id="tit_dat4" strokeType="OUTSIDE" strokeWidth="0.0" text="AWS" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <Text fx:id="dato4" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
          <font>
             <Font size="18.0" />
          </font>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
       </Text>
-      <Text fx:id="dato4" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-      <Text fx:id="dato3" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fx:id="valor3" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fx:id="valor4" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+      <Text fx:id="dato1" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="dato2" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <GridPane.margin>
+            <Insets top="10.0" />
+         </GridPane.margin>
+      </Text>
+      <Text fx:id="dato1" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+      <Text fx:id="valor2" strokeType="OUTSIDE" strokeWidth="0.0" text="---" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
