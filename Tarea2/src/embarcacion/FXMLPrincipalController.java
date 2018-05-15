@@ -37,55 +37,54 @@ public class FXMLPrincipalController implements Initializable {
     @FXML
     private LineChart<?, ?> int_v;
     @FXML
-    private PieChart twd;
-    @FXML
-    private Text tit_dat3;
-    @FXML
-    private Text tit_dat4;
-    @FXML
     private Text dato4;
     @FXML
     private Text dato3;
-    @FXML
-    private PieChart awa;
     
     //Para saltar entre viento, direccion y coordenadas sin cambiar de stage
     private Parent root1;
     private Parent root2;
     private Parent root3;
     private VBox vbox;
+    @FXML
+    private Text dato1;
+    @FXML
+    private Text dato2;
+    @FXML
+    private Text valor3;
+    @FXML
+    private Text valor4;
+    @FXML
+    private Text valor2;
    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        /*
-        try {
-            // TODO
-            FXMLLoader loader1 = new FXMLLoader(getClass().getResource("FXMLPrincipal.fxml"));
-            root1 = loader1.load();
-
-            FXMLLoader loader2 = new FXMLLoader(getClass().getResource("FXMLDir.fxml"));
-            root2 = loader2.load();
-            
-            FXMLLoader loader3 = new FXMLLoader(getClass().getResource("FXMLCoord.fxml"));
-            root3 = loader3.load();
-
-        } catch (IOException ex) {
-            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
     }    
 
     @FXML
     private void vientoclk(MouseEvent event) {
+        dato1.setText("TWD");
+        dato2.setText("AWD");
+        dato3.setText("TWS");
+        dato4.setText("AWS");
+        
     }
 
     @FXML
     private void dirclk(MouseEvent event) {
+        dato1.setText("HDG");
+        dato2.setText("PITCH");
+        dato3.setText("ROLL");
+        dato4.setText("---");
     }
-
     @FXML
     private void coordclk(MouseEvent event) {
+        dato1.setText("LAT");
+        dato2.setText("LON");
+        dato3.setText("COG");
+        dato4.setText("sog");
+    
     }
     
 }
