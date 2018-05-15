@@ -60,6 +60,8 @@ public class FXMLPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        
     }    
 
     @FXML
@@ -83,7 +85,7 @@ public class FXMLPrincipalController implements Initializable {
         dato1.setText("LAT");
         dato2.setText("LON");
         dato3.setText("COG");
-        dato4.setText("sog");
+        dato4.setText("SOG");
     
     }
     
