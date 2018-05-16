@@ -5,88 +5,102 @@
  */
 package embarcacion;
 
-import java.io.IOException;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.event.ActionEvent;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.chart.LineChart;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
+
 /**
+ * FXML Controller class
  *
- * @author Moga
+ * @author moiminme
  */
 public class FXMLPrincipalController implements Initializable {
-    
-    private Label label;
-    @FXML
-    private Slider slider;
+
     @FXML
     private LineChart<?, ?> dir_v;
     @FXML
     private LineChart<?, ?> int_v;
     @FXML
-    private Text dato4;
+    private Text dato_1_1;
     @FXML
-    private Text dato3;
+    private Label valor_twd;
+    @FXML
+    private Label valor_tws;
+    @FXML
+    private Label valor_awa;
+    @FXML
+    private Label valor_aws;
     
-    //Para saltar entre viento, direccion y coordenadas sin cambiar de stage
-    private Parent root1;
-    private Parent root2;
-    private Parent root3;
-    private VBox vbox;
-    @FXML
-    private Text dato1;
-    @FXML
-    private Text dato2;
-    @FXML
-    private Text valor3;
-    @FXML
-    private Text valor4;
-    @FXML
-    private Text valor2;
-   
+    private Model model;
     
+
+    /**
+     * Initializes the controller class.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        try {
+            model=Model.getInstance();
+            cargarDatos();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(FXMLPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-    }    
-
-    @FXML
-    private void vientoclk(MouseEvent event) {
-        dato1.setText("TWD");
-        dato2.setText("AWD");
-        dato3.setText("TWS");
-        dato4.setText("AWS");
+        //------------------- BLOQUE 1 - VIENTO ---------------------
+        
+        model.TWDProperty().addListener((observable, oldValue, newValue) -> {
+            String dat = String.valueOf(newValue) + "º";
+            Platform.runLater(() -> {
+                valor_twd.setText(dat);
+            });
+        });
+        
+        model.TWSProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "Kn";
+            Platform.runLater(() -> {
+                valor_tws.setText(dat);
+            });
+        });
+        
+        model.AWAProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "º";
+            Platform.runLater(() -> {
+                valor_awa.setText(dat);
+            });
+        });
+        
+        model.AWSProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "Km/h (?)";
+            Platform.runLater(() -> {
+                valor_aws.setText(dat);
+            });
+        });
+        
+        //--------------------- BLOQUE 2 "    " -----------------------------
+        
+        
         
     }
-
-    @FXML
-    private void dirclk(MouseEvent event) {
-        dato1.setText("HDG");
-        dato2.setText("PITCH");
-        dato3.setText("ROLL");
-        dato4.setText("---");
-    }
-    @FXML
-    private void coordclk(MouseEvent event) {
-        dato1.setText("LAT");
-        dato2.setText("LON");
-        dato3.setText("COG");
-        dato4.setText("SOG");
     
-    }
     
+    
+    // CARGAR FICHERO NMEA 
+    
+    public void cargarDatos() throws FileNotFoundException{
+    
+        File ficheroNMEA = new File("Jul_20_2017_1871339_0183.NMEA");
+        model.addSentenceReader(ficheroNMEA);
+        
+    }   
 }
