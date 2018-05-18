@@ -15,7 +15,10 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.Label;
+import javafx.scene.control.Slider;
 import javafx.scene.text.Text;
 
 
@@ -27,12 +30,12 @@ import javafx.scene.text.Text;
 public class FXMLPrincipalController implements Initializable {
 
     @FXML
-    private LineChart<?, ?> dir_v;
+    private LineChart<String, Number> dir_v;
+   // ObservableList<XYChart.Data<String, Double>> xyList = 
     @FXML
     private LineChart<?, ?> int_v;
     @FXML
-    private Text dato_1_1;
-    @FXML
+    
     private Label valor_twd;
     @FXML
     private Label valor_tws;
@@ -42,6 +45,20 @@ public class FXMLPrincipalController implements Initializable {
     private Label valor_aws;
     
     private Model model;
+    @FXML
+    
+    private Slider slider;
+    @FXML
+    private Label valor_lat;
+    @FXML
+    private Label valor_lon;
+    @FXML
+    private Label valor_cog;
+    @FXML
+    private Label valor_sog;
+    
+    private final int nx = 10;
+    private final double[] arrayLat = new double[nx];
     
 
     /**
@@ -63,6 +80,7 @@ public class FXMLPrincipalController implements Initializable {
             String dat = String.valueOf(newValue) + "º";
             Platform.runLater(() -> {
                 valor_twd.setText(dat);
+                               
             });
         });
         
@@ -87,9 +105,38 @@ public class FXMLPrincipalController implements Initializable {
             });
         });
         
-        //--------------------- BLOQUE 2 "    " -----------------------------
+        //--------------------- BLOQUE 2 "RUMBO" -----------------------------
         
+        model.LATProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "---";
+            Platform.runLater(() -> {
+                valor_lat.setText(dat);
+            });
+        });
         
+        model.LONProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "---";
+            Platform.runLater(() -> {
+                valor_lon.setText(dat);
+            });
+        });
+         
+        model.COGProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "---";
+            Platform.runLater(() -> {
+                valor_cog.setText(dat);
+            });
+        });
+          
+        model.SOGProperty().addListener((observable, oldValue, newValue)-> {
+            String dat = String.valueOf(newValue) + "Km/h (?)";
+            Platform.runLater(() -> {
+                valor_sog.setText(dat);
+            });
+        }); 
+        
+     //--------------------- BLOQUE 3 "     " -----------------------------
+
         
     }
     
@@ -102,5 +149,8 @@ public class FXMLPrincipalController implements Initializable {
         File ficheroNMEA = new File("Jul_20_2017_1871339_0183.NMEA");
         model.addSentenceReader(ficheroNMEA);
         
-    }   
+    }
+    
+    // Line chart
+    
 }

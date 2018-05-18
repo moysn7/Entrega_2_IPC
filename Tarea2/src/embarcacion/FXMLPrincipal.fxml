@@ -16,7 +16,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
    <children>
       <TabPane layoutX="51.0" layoutY="-33.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -57,7 +56,7 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </LineChart>
-                        <Slider prefHeight="4.0" prefWidth="194.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Slider fx:id="slider" prefHeight="4.0" prefWidth="194.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" />
                            </GridPane.margin>
@@ -138,7 +137,7 @@
                   </GridPane>
                </content>
           </Tab>
-          <Tab closable="false" text="GRUPO 2">
+          <Tab closable="false" text="RUMBO">
                <content>
                   <GridPane style="-fx-background-color: #0B173B;">
                      <columnConstraints>
@@ -152,7 +151,7 @@
                         <RowConstraints maxHeight="145.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <LineChart GridPane.columnIndex="2">
+                        <LineChart fx:id="dir_v" GridPane.columnIndex="2">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -174,7 +173,7 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </LineChart>
-                        <Slider prefHeight="4.0" prefWidth="194.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Slider fx:id="slider" prefHeight="4.0" prefWidth="194.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" />
                            </GridPane.margin>
@@ -187,7 +186,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </CheckBox>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 2-1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LAT" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -195,7 +194,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 2-2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LON" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -203,7 +202,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 2-3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="COG" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -211,7 +210,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 2-4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SOG" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -219,7 +218,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Label text="Label" textFill="WHITE" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_lat" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -227,7 +226,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_lon" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -235,7 +234,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_cog" text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -243,7 +242,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_sog" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>

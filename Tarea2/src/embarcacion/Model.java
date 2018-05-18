@@ -13,8 +13,11 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import net.sf.marineapi.nmea.event.AbstractSentenceListener;
 import net.sf.marineapi.nmea.io.SentenceReader;
+import net.sf.marineapi.nmea.sentence.HDGSentence;
 import net.sf.marineapi.nmea.sentence.MDASentence;
 import net.sf.marineapi.nmea.sentence.MWVSentence;
+import net.sf.marineapi.nmea.sentence.RMCSentence;
+import net.sf.marineapi.nmea.sentence.XDRSentence;
 
 /**
  *
@@ -58,6 +61,55 @@ public class Model {
         return AWS;
     }
     
+    // -------------DATOS REFERENTES AL RUMBO ----------------------- //
+    
+    private final DoubleProperty HDG = new SimpleDoubleProperty();
+    public DoubleProperty HDGProperty(){
+        return HDG;
+    }
+    
+    // -------------DATOS REFERENTES AL CLINÓMETRO ----------------------- //
+    
+    private final DoubleProperty PITCH = new SimpleDoubleProperty();
+    public DoubleProperty PITCHProperty(){
+        return PITCH;
+    }
+
+    private final DoubleProperty ROLL = new SimpleDoubleProperty();
+    public DoubleProperty ROLLProperty(){
+        return ROLL;
+    }
+    
+    
+    // -------------DATOS REFERENTES AL GPS ----------------------- //
+
+    private final DoubleProperty LAT = new SimpleDoubleProperty();
+    public DoubleProperty LATProperty(){
+        return LAT;
+    }
+    
+    private final DoubleProperty LON = new SimpleDoubleProperty();
+    public DoubleProperty LONProperty(){
+        return LON;
+    }
+    
+    private final DoubleProperty COG = new SimpleDoubleProperty();
+    public DoubleProperty COGProperty(){
+        return COG;
+    }
+    
+    private final DoubleProperty SOG = new SimpleDoubleProperty();
+    public DoubleProperty SOGProperty(){
+        return SOG;
+    }
+    
+    // -------------DATOS REFERENTES A LA TEMPERATURA ----------------------- //
+
+    private final DoubleProperty TEMP = new SimpleDoubleProperty();
+    public DoubleProperty TEMProperty(){
+        return TEMP;
+    }
+    
     
     class MDASentenceListener
         extends AbstractSentenceListener<MDASentence> {
@@ -69,12 +121,16 @@ public class Model {
         
            //TRUE WIND SPEED
            TWS.set(sentence.getWindSpeedKnots());
+           
+           //TEMPERATURA
+           TEMP.set(sentence.getAirTemperature());
            }
     }
     
     class MWVSentenceListener
         extends AbstractSentenceListener<MWVSentence> {
         
+        @Override
         public void sentenceRead(MWVSentence sentence){
             // APARENT WIND ANGLE
             AWA.set(sentence.getAngle());
@@ -84,32 +140,84 @@ public class Model {
         }
     }
     
+    class  HDGSentenceListener
+        extends AbstractSentenceListener<HDGSentence> {
     
+        @Override
+        public void sentenceRead(HDGSentence sentence){
+            // HEADING
+            HDG.set(sentence.getHeading());
+        }
+    }
+    
+    class RMCSentenceListener
+        extends AbstractSentenceListener<RMCSentence> {
+        
+        @Override
+        public void sentenceRead(RMCSentence sentence){
+            //LATITUD
+            
+            LAT.set(sentence.getPosition().getLatitude());
+            
+            //LONGITUD
+            LON.set(sentence.getPosition().getLongitude());
+            
+            //COURSE OVER GROUND
+            COG.set(sentence.getCourse());
+            
+            //SPEED OVER GROUND
+            SOG.set(sentence.getSpeed());
+        }
+    }
+    
+    class XDRSentenceListener
+        extends AbstractSentenceListener<XDRSentence>{
+    
+        @Override
+        public void sentenceRead(XDRSentence sentence){
+            //PITCH
+         //   PITCH.set(sentence.getMeasurements());
+        }
+    }
+    
+ //   class MesurementListener
+ //       extends AbstractSentenceListener<Mesurement>{
+    
+ //       @Override
+//        public void sentenceRead(Mesurement sentence){
+            //PITCH
+         //   PITCH.set(sentence.getMeasurements());
+   //     }
+ //   }
     
     
     public void addSentenceReader(File file) throws FileNotFoundException {
 
-    InputStream stream = new FileInputStream(file);
-    if (reader != null) { 
-        reader.stop();
-    }
-    reader = new SentenceReader(stream);
+        InputStream stream = new FileInputStream(file);
+        if (reader != null) { 
+            reader.stop();
+        }
+        reader = new SentenceReader(stream);
  
-    //==================================================================
-    //============= Registra todos los sentenceListener que necesites
+    //====================== SentenceListener ================================//
     
     
-   // HDGSentenceListener hdg = new HDGSentenceListener();
-    //reader.addSentenceListener(hdg);
+        HDGSentenceListener hdg = new HDGSentenceListener();
+        reader.addSentenceListener(hdg);
 
-    MDASentenceListener mda = new MDASentenceListener();
-    reader.addSentenceListener(mda);
+        MDASentenceListener mda = new MDASentenceListener();
+        reader.addSentenceListener(mda);
 
-    MWVSentenceListener mwv = new MWVSentenceListener();
-    reader.addSentenceListener(mwv);
+        MWVSentenceListener mwv = new MWVSentenceListener();
+        reader.addSentenceListener(mwv);
 
-    //    RMCSentenceListener rmd = new RMCSentenceListener();
-    //    reader.addSentenceListener(rmd);
+        RMCSentenceListener rmd = new RMCSentenceListener();
+        reader.addSentenceListener(rmd);
+        
+        XDRSentenceListener xdr  = new XDRSentenceListener();
+        reader.addSentenceListener(xdr);
+        
+
         
                 
     //===============================================================
@@ -117,11 +225,12 @@ public class Model {
     //===============================================================
     //== Anadimos un exceptionListener para que capture las tramas que 
     // == no tienen parser, ya que no las usamos
-    reader.setExceptionListener(e->{System.out.println(e.getMessage());});
+    
+        reader.setExceptionListener(e->{System.out.println(e.getMessage());});
          
     //================================================================
     //======== arrancamos el SentenceReader para que empieze a escucha             
-    reader.start();
+        reader.start();
     }
 }
 
