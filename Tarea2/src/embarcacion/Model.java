@@ -175,21 +175,16 @@ public class Model {
     
         @Override
         public void sentenceRead(XDRSentence sentence){
-            //PITCH
-         //   PITCH.set(sentence.getMeasurements());
+            for (Measurement me : sentence.getMeasurements()) {
+                if (me.getName().equals("PTCH")){
+                    PITCH.set(me.getValue());
+                }
+                else if(me.getName().equals("ROLL")) {
+                    ROLL.set(me.getValue());
+                }
+            }
         }
     }
-    
- //   class MesurementListener
- //       extends AbstractSentenceListener<Mesurement>{
-    
- //       @Override
-//        public void sentenceRead(Mesurement sentence){
-            //PITCH
-         //   PITCH.set(sentence.getMeasurements());
-   //     }
- //   }
-    
     
     public void addSentenceReader(File file) throws FileNotFoundException {
 
