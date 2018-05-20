@@ -175,14 +175,14 @@ public class Model {
     
         @Override
         public void sentenceRead(XDRSentence sentence){
-            for (Measurement me : sentence.getMeasurements()) {
-                if (me.getName().equals("PTCH")){
-                    PITCH.set(me.getValue());
-                }
-                else if(me.getName().equals("ROLL")) {
-                    ROLL.set(me.getValue());
-                }
-            }
+          //  for (Measurement me : sentence.getMeasurements()) {
+          //      if (me.getName().equals("PTCH")){
+             //       PITCH.set(me.getValue());
+              //  }
+            //    else if(me.getName().equals("ROLL")) {
+             //       ROLL.set(me.getValue());
+            //    }
+       //     }
         }
     }
     

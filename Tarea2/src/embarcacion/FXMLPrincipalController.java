@@ -12,13 +12,16 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
 
@@ -59,6 +62,20 @@ public class FXMLPrincipalController implements Initializable {
     
     private final int nx = 10;
     private final double[] arrayLat = new double[nx];
+    @FXML
+    private GridPane panel1;
+    @FXML
+    private Text dato_1_1;
+    @FXML
+    private GridPane panel2;
+    @FXML
+    private GridPane panel3;
+    @FXML
+    private CheckBox check1;
+    @FXML
+    private CheckBox check2;
+    @FXML
+    private CheckBox check3;
     
 
     /**
@@ -152,5 +169,57 @@ public class FXMLPrincipalController implements Initializable {
     }
     
     // Line chart
+    
+
+    @FXML
+    private void check(ActionEvent event) {
+        if(!check1.isSelected()){
+                    panel1.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        }
+                    
+                                    
+                                    
+                                    
+                
+                else{
+                   panel1.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                   
+        
+    }
+    }
+
+    @FXML
+    private void checkclk2(ActionEvent event) {
+        if(!check2.isSelected()){
+                    panel2.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        }
+                    
+                                    
+                                    
+                                    
+                
+                else{
+                   panel2.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                   
+        
+    }
+    }
+
+    @FXML
+    private void check3clk(ActionEvent event) {
+        if(!check3.isSelected()){
+                    panel3.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        }
+                    
+                                    
+                                    
+                                    
+                
+                else{
+                   panel3.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                   
+        
+    }
+    }
     
 }
