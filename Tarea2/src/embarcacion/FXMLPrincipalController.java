@@ -5,6 +5,7 @@
  */
 package embarcacion;
 
+import static com.sun.deploy.net.CrossDomainXML.check;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
@@ -76,6 +78,7 @@ public class FXMLPrincipalController implements Initializable {
     private CheckBox check2;
     @FXML
     private CheckBox check3;
+    public boolean p1 = false;
     
 
     /**
@@ -116,7 +119,7 @@ public class FXMLPrincipalController implements Initializable {
         });
         
         model.AWSProperty().addListener((observable, oldValue, newValue)-> {
-            String dat = String.valueOf(newValue) + "Km/h (?)";
+            String dat = String.valueOf(newValue) + "Km/h";
             Platform.runLater(() -> {
                 valor_aws.setText(dat);
             });
@@ -146,7 +149,7 @@ public class FXMLPrincipalController implements Initializable {
         });
           
         model.SOGProperty().addListener((observable, oldValue, newValue)-> {
-            String dat = String.valueOf(newValue) + "Km/h (?)";
+            String dat = String.valueOf(newValue) + "Km/h";
             Platform.runLater(() -> {
                 valor_sog.setText(dat);
             });
@@ -173,16 +176,16 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void check(ActionEvent event) {
-        if(!check1.isSelected()){
-                    panel1.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        if(p1){
+                    panel1.setStyle("-fx-background-color: blue; -fx-text-fill: white;");
+                    p1 = true;
+                    
+                    
         }
                     
-                                    
-                                    
-                                    
-                
-                else{
-                   panel1.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+          else{
+                   panel1.setStyle("-fx-background-color: coral; -fx-text-fill: black;");
+                   p1 = false;
                    
         
     }
@@ -190,8 +193,10 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void checkclk2(ActionEvent event) {
-        if(!check2.isSelected()){
-                    panel2.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        if(p1){
+                    panel2.setStyle("-fx-background-color: coral; -fx-text-fill: white;");
+                    p1 = true;
+
         }
                     
                                     
@@ -199,7 +204,9 @@ public class FXMLPrincipalController implements Initializable {
                                     
                 
                 else{
-                   panel2.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                   panel2.setStyle("-fx-background-color: blue; -fx-text-fill: black;");
+                   p1 = false;
+
                    
         
     }
@@ -207,8 +214,9 @@ public class FXMLPrincipalController implements Initializable {
 
     @FXML
     private void check3clk(ActionEvent event) {
-        if(!check3.isSelected()){
-                    panel3.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
+        if(p1){
+                    panel3.setStyle("-fx-background-color: coral; -fx-text-fill: white;");
+                    p1 = true;
         }
                     
                                     
@@ -216,10 +224,96 @@ public class FXMLPrincipalController implements Initializable {
                                     
                 
                 else{
-                   panel3.setStyle("-fx-background-color: black; -fx-text-fill: white;");
+                   panel3.setStyle("-fx-background-color: blue; -fx-text-fill: black;");
+                   p1 = false;
                    
         
+                }
     }
+
+//    @FXML
+//    private void pest1(Event event) {
+//        if( p1 ) {
+//            panel1.setStyle("-fx-background-color: coral; -fx-text-fill: black;");
+//            check1.setSelected(true);
+//            p1 = true;
+//        }
+//        else{
+//            panel1.setStyle("-fx-background-color: blue; -fx-text-fill: black;");
+//            check1.setSelected(false);
+//            p1 = false;
+//            
+//        }
+//        
+//        
+//    }
+//
+//    @FXML
+//    private void pest2(Event event) {
+//        if( p1) {
+//        panel2.setStyle("-fx-background-color: coral; -fx-text-fill: black;");
+//        check2.setSelected(true);
+//        p1 = true;
+//    }
+//        else{
+//            panel2.setStyle("-fx-background-color: blue; -fx-text-fill: black;");
+//            check2.setSelected(false);}
+//        p1 = false;
+//        
+//        
+//    }
+//
+//    @FXML
+//    private void pest3(Event event) {
+//        if( p1 ) {
+//        panel3.setStyle("-fx-background-color: coral; -fx-text-fill: black;");
+//        check3.setSelected(true);
+//        p1 = true;
+//    }
+//        else{
+//            panel3.setStyle("-fx-background-color: blue; -fx-text-fill: black;");
+//            check3.setSelected(false);}
+//        p1 = false;
+//    }
+//
+//    @FXML
+//    private void cer1(Event event) {
+//        
+//    }
+//
+//
+//    @FXML
+//    private void cer2(Event event) {
+//        System.exit(0);
+//        
+//    }
+//
+//
+//    @FXML
+//    private void cer3(Event event) {
+//        System.exit(0);
+//    }
+
+
+    @FXML
+    private void pest1(Event event) {
     }
+
+
+    @FXML
+    private void pest2(Event event) {
+    }
+
+
+    @FXML
+    private void pest3(Event event) {
+    }
+
     
-}
+    }
+
+
+    
+   
+    
+

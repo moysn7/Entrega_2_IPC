@@ -18,6 +18,7 @@ import net.sf.marineapi.nmea.sentence.MDASentence;
 import net.sf.marineapi.nmea.sentence.MWVSentence;
 import net.sf.marineapi.nmea.sentence.RMCSentence;
 import net.sf.marineapi.nmea.sentence.XDRSentence;
+import net.sf.marineapi.nmea.util.Measurement;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Model {
     }
     
     
-    private SentenceReader reader;
+    SentenceReader reader;
     
     // -------------DATOS REFERENTES AL VIIENTO ----------------------- //
     
@@ -175,14 +176,14 @@ public class Model {
     
         @Override
         public void sentenceRead(XDRSentence sentence){
-          //  for (Measurement me : sentence.getMeasurements()) {
-          //      if (me.getName().equals("PTCH")){
-             //       PITCH.set(me.getValue());
-              //  }
-            //    else if(me.getName().equals("ROLL")) {
-             //       ROLL.set(me.getValue());
-            //    }
-       //     }
+           for (Measurement me : sentence.getMeasurements()) {
+                if (me.getName().equals("PTCH")){
+                    PITCH.set(me.getValue());
+                }
+                else if(me.getName().equals("ROLL")) {
+                    ROLL.set(me.getValue());
+                }
+            }
         }
     }
     
