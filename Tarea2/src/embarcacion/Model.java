@@ -9,6 +9,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import net.sf.marineapi.nmea.event.AbstractSentenceListener;
@@ -38,7 +40,9 @@ public class Model {
     }
     
     
-    SentenceReader reader;
+    private SentenceReader reader;
+    
+    
     
     // -------------DATOS REFERENTES AL VIIENTO ----------------------- //
     
@@ -176,11 +180,11 @@ public class Model {
     
         @Override
         public void sentenceRead(XDRSentence sentence){
-           for (Measurement me : sentence.getMeasurements()) {
+            for (Measurement me : sentence.getMeasurements()) {
                 if (me.getName().equals("PTCH")){
-                    PITCH.set(me.getValue());
+                      PITCH.set(me.getValue());
                 }
-                else if(me.getName().equals("ROLL")) {
+                   else if(me.getName().equals("ROLL")) {
                     ROLL.set(me.getValue());
                 }
             }
@@ -212,20 +216,14 @@ public class Model {
         
         XDRSentenceListener xdr  = new XDRSentenceListener();
         reader.addSentenceListener(xdr);
-        
-
-        
+       
                 
-    //===============================================================
-
-    //===============================================================
-    //== Anadimos un exceptionListener para que capture las tramas que 
-    // == no tienen parser, ya que no las usamos
+    //==============================================================
     
         reader.setExceptionListener(e->{System.out.println(e.getMessage());});
          
     //================================================================
-    //======== arrancamos el SentenceReader para que empieze a escucha             
+    
         reader.start();
     }
 }

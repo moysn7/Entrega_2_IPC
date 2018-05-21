@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.chart.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -22,13 +16,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
    <children>
-      <TabPane layoutX="51.0" layoutY="-33.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="40.0" tabMinWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab onCloseRequest="#cer1" onSelectionChanged="#pest1" style="-fx-text-fill: -fx-text-base-color; -fx-background-color: white;" text="VIENTO">
+          <Tab style="-fx-text-fill: red; -fx-background-color: #234654;" text="VIENTO">
                <content>
-                  <GridPane fx:id="panel1" style="-fx-background-color: Coral;">
+                  <GridPane fx:id="panel1" style="-fx-background-color: #0B173B;">
                     <columnConstraints>
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="229.0" />
@@ -40,7 +34,7 @@
                       <RowConstraints maxHeight="145.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <LineChart fx:id="dir_v" style="-fx-text-fill: black;" GridPane.columnIndex="2">
+                        <LineChart fx:id="dir_v" GridPane.columnIndex="2">
                           <xAxis>
                             <CategoryAxis side="BOTTOM" />
                           </xAxis>
@@ -51,7 +45,7 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </LineChart>
-                        <LineChart fx:id="int_v" style="-fx-text-fill: black;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                        <LineChart fx:id="int_v" GridPane.columnIndex="2" GridPane.rowIndex="1">
                            <xAxis>
                               <CategoryAxis side="BOTTOM" />
                            </xAxis>
@@ -62,12 +56,12 @@
                               <Insets right="10.0" />
                            </GridPane.margin>
                         </LineChart>
-                        <Slider fx:id="slider" prefHeight="4.0" prefWidth="194.0" style="-fx-text-fill: black;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                        <Slider fx:id="slider" prefHeight="4.0" prefWidth="194.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="10.0" left="20.0" right="20.0" />
                            </GridPane.margin>
                         </Slider>
-                        <CheckBox fx:id="check1" mnemonicParsing="false" onAction="#check" style="-fx-text-fill: black;" text="Modo Nocturno" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <CheckBox fx:id="check1" mnemonicParsing="false" onAction="#check" text="Modo Nocturno" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="20.0" />
                            </GridPane.margin>
@@ -75,7 +69,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </CheckBox>
-                        <Text fx:id="dato_1_1" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="TWD" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fx:id="dato_1_1" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TWD" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -83,7 +77,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="TWS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TWS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -91,7 +85,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="AWA" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="AWA" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -99,7 +93,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="AWS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="AWS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -107,7 +101,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Label fx:id="valor_twd" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_twd" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -115,7 +109,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_tws" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_tws" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -123,7 +117,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_awa" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_awa" text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -131,7 +125,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_aws" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_aws" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -143,9 +137,9 @@
                   </GridPane>
                </content>
           </Tab>
-          <Tab closable="false" onCloseRequest="#cer2" onSelectionChanged="#pest2" text="RUMBO">
+          <Tab closable="false" text="RUMBO">
                <content>
-                  <GridPane fx:id="panel2" style="-fx-background-color: Coral;">
+                  <GridPane fx:id="panel2" style="-fx-background-color: #0B173B;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="229.0" />
@@ -184,7 +178,7 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" />
                            </GridPane.margin>
                         </Slider>
-                        <CheckBox fx:id="check2" mnemonicParsing="false" onAction="#checkclk2" prefHeight="20.0" prefWidth="175.0" style="-fx-text-fill: black;" text="Modo Nocturno" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <CheckBox fx:id="check2" mnemonicParsing="false" onAction="#checkclk2" text="Modo Nocturno" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="20.0" />
                            </GridPane.margin>
@@ -192,7 +186,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </CheckBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="LAT" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LAT" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -200,7 +194,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="LON" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="LON" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -208,7 +202,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="COG" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="COG" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -216,7 +210,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-fill: black;" text="SOG" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="SOG" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -224,7 +218,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Label fx:id="valor_lat" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_lat" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -232,7 +226,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_lon" style="-fx-text-fill: black;" text="Label" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_lon" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -240,7 +234,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_cog" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_cog" text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -248,7 +242,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label fx:id="valor_sog" style="-fx-text-fill: black;" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label fx:id="valor_sog" text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -260,9 +254,9 @@
                   </GridPane>
                </content>
           </Tab>
-            <Tab onCloseRequest="#cer3" onSelectionChanged="#pest3" text="POSICION">
+            <Tab text="GRUPO 3">
                <content>
-                  <GridPane fx:id="panel3" style="-fx-background-color: coral;">
+                  <GridPane fx:id="panel3" style="-fx-background-color: #0B173B;">
                      <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="224.0" minWidth="10.0" prefWidth="224.0" />
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="261.0" minWidth="10.0" prefWidth="229.0" />
@@ -301,7 +295,7 @@
                               <Insets bottom="10.0" left="20.0" right="20.0" />
                            </GridPane.margin>
                         </Slider>
-                        <CheckBox fx:id="check3" mnemonicParsing="false" onAction="#check3clk" text="Modo Nocturno" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                        <CheckBox fx:id="check3" mnemonicParsing="false" onAction="#check3clk" text="Modo Nocturno" textFill="WHITE" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                            <GridPane.margin>
                               <Insets bottom="20.0" />
                            </GridPane.margin>
@@ -309,7 +303,7 @@
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </CheckBox>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -317,7 +311,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -325,7 +319,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -333,7 +327,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                        <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="DATO 3-4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP">
                            <font>
                               <Font name="System Bold" size="39.0" />
                            </font>
@@ -341,7 +335,7 @@
                               <Insets top="10.0" />
                            </GridPane.margin>
                         </Text>
-                        <Label text="Label" textFill="#030303" GridPane.halignment="CENTER">
+                        <Label fx:id="valor_roll" text="Label" textFill="WHITE" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -349,7 +343,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="#030303" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -357,7 +351,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="#030303" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label text="Label" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
@@ -365,7 +359,7 @@
                               <Insets top="20.0" />
                            </GridPane.margin>
                         </Label>
-                        <Label text="Label" textFill="#030303" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <Label text="Label" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                            <font>
                               <Font size="39.0" />
                            </font>
