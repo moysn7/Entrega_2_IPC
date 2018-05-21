@@ -22,13 +22,15 @@ public class Embarcacion extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLPrincipal.fxml"));
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(Embarcacion.class.getResource("mdia.css").toExternalForm());
         stage.setTitle("NMEA Viewer");
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setTitle("");
         stage.setMaxHeight(480);
         stage.setMaxWidth(800);
         stage.show();
+        
+
         
         
     }

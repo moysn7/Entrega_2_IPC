@@ -5,6 +5,7 @@
  */
 package embarcacion;
 
+import static com.sun.javafx.scene.control.skin.Utils.getResource;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.math.RoundingMode;
@@ -14,17 +15,23 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.Tab;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
+import static javax.management.Query.value;
 
 
 /**
@@ -72,12 +79,23 @@ public class FXMLPrincipalController implements Initializable {
     private GridPane panel2;
     @FXML
     private GridPane panel3;
-    @FXML
     private CheckBox check1;
-    @FXML
-    private CheckBox check2;
-    @FXML
+    private Button check2;
     private CheckBox check3;
+    @FXML
+    private Text dato_1_1;
+    private Button check;
+    @FXML
+    private Label valor_roll;
+    @FXML
+    private Button but2;
+    @FXML
+    private Button but3;
+    @FXML
+    private Button but1;
+    private boolean dia = true;
+    @FXML
+    private AnchorPane root;
    
 
     /**
@@ -85,6 +103,13 @@ public class FXMLPrincipalController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Bindings de los botones
+        
+       // but1.setText(value).bind(
+        //Bindings.dia);
+    
+        
+        //Fin de bindings
         
         DecimalFormat df = new DecimalFormat("#.#####");
         
@@ -179,40 +204,118 @@ public class FXMLPrincipalController implements Initializable {
     }
     
     // Line chart
+
+    //boton dia-noche pinche
+    @FXML
+    private void but2clk(ActionEvent event) {
+    if(!dia){
+                    root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mdia.css").toExternalForm());
+                    dia = true;
+                    but1.setText("Modo noche");
+                    but2.setText("Modo noche");
+                    but3.setText("Modo noche");
+        }
+
+                else{
+                        root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mnoche.css").toExternalForm());
+                        dia = false;
+                        but1.setText("Modo día");
+                        but2.setText("Modo día");
+                        but3.setText("Modo día");
+    }
     
-
-    @FXML
-    private void check(ActionEvent event) {
-        if(!check1.isSelected()){
-                    panel1.setStyle("-fx-background-color: coral; -fx-text-fill: white;");
-        }
-        else{
-             panel1.setStyle("-fx-background-color: black; -fx-text-fill: white;");
-                   
-    }
-    }
-
-    @FXML
-    private void checkclk2(ActionEvent event) {
-        if(!check2.isSelected()){
-                    panel2.setStyle("-fx-background-color: coral; -fx-text-fill: white;");
-        }
-
-                else{
-                   panel2.setStyle("-fx-background-color: black; -fx-text-fill: white;");
-
-    }
-    }
-
-    @FXML
-    private void check3clk(ActionEvent event) {
-        if(!check3.isSelected()){
-                    panel3.setStyle("-fx-background-color: orange; -fx-text-fill: white;");
-        }                
-                else{
-                   panel3.setStyle("-fx-background-color: black; -fx-text-fill: white;");   
         
     }
+
+    @FXML
+    private void but3clk(ActionEvent event) {
+    if(!dia){
+                    root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mdia.css").toExternalForm());
+                    dia = true;
+                    but1.setText("Modo noche");
+                    but2.setText("Modo noche");
+                    but3.setText("Modo noche");
+        }
+
+                else{
+                        root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mnoche.css").toExternalForm());
+                        dia = false;
+                        but1.setText("Modo día");
+                        but2.setText("Modo día");
+                        but3.setText("Modo día");
     }
-    
-}
+    }
+
+    @FXML
+    private void but1clk(ActionEvent event) {
+        if(!dia){
+                    root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mdia.css").toExternalForm());
+                    dia = true;
+                    but1.setText("Modo noche");
+                    but2.setText("Modo noche");
+                    but3.setText("Modo noche");
+        }
+
+                else{
+                        root.getStylesheets().clear();
+                    root.getStylesheets().add(Embarcacion.class.getResource("mnoche.css").toExternalForm());
+                        dia = false;
+                        but1.setText("Modo día");
+                        but2.setText("Modo día");
+                        but3.setText("Modo día");
+    }
+    }
+
+    @FXML
+    private void v1(Event event) {
+        if(dia){
+            but1.setText("Modo noche");
+            but2.setText("Modo noche");
+            but3.setText("Modo noche");
+        }
+        else{
+            but1.setText("Modo día");
+            but2.setText("Modo día");
+            but3.setText("Modo día");
+            
+    }
+    }
+
+    @FXML
+    private void v2(Event event) {
+        if(dia){
+            but1.setText("Modo noche");
+            but2.setText("Modo noche");
+            but3.setText("Modo noche");
+        }
+        else{
+            but1.setText("Modo día");
+            but2.setText("Modo día");
+            but3.setText("Modo día");
+            
+
+    }
+    }
+
+    @FXML
+    private void v3(Event event) {
+        if(dia){
+            but1.setText("Modo noche");
+            but2.setText("Modo noche");
+            but3.setText("Modo noche");
+        }
+        else{
+            but1.setText("Modo día");
+            but2.setText("Modo día");
+            but3.setText("Modo día");
+            
+
+    }
+        
+    } 
+    }
