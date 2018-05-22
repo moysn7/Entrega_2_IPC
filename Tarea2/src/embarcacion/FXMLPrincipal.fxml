@@ -24,7 +24,7 @@
 
 <AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="embarcacion.FXMLPrincipalController">
    <children>
-      <TabPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="40.0" tabMinWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
+      <TabPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" tabMinHeight="40.0" tabMinWidth="240.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0">
         <tabs>
           <Tab onSelectionChanged="#v1">
                <content>
@@ -224,7 +224,7 @@
                         </Text>
                         <Label fx:id="valor_lat" text="Label" textFill="#030303" GridPane.halignment="CENTER">
                            <font>
-                              <Font name="System Bold" size="39.0" />
+                              <Font name="System Bold" size="23.0" />
                            </font>
                            <GridPane.margin>
                               <Insets top="20.0" />
@@ -232,7 +232,7 @@
                         </Label>
                         <Label fx:id="valor_lon" text="Label" textFill="#030303" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                            <font>
-                              <Font name="System Bold" size="39.0" />
+                              <Font name="System Bold" size="23.0" />
                            </font>
                            <GridPane.margin>
                               <Insets top="20.0" />

@@ -153,19 +153,18 @@ public class FXMLPrincipalController implements Initializable {
         
         //--------------------- BLOQUE 2 "RUMBO" -----------------------------
         
-        model.LATProperty().addListener((observable, oldValue, newValue)-> {
-            String dat = String.valueOf(df.format(newValue));
+        model.GPSproperty().addListener((observable, oldValue, newValue)-> {
             Platform.runLater(() -> {
-                valor_lat.setText(dat);
+                valor_lat.setText(String.valueOf(df.format(newValue.getLatitude())) +
+                        " " + newValue.getLatitudeHemisphere());
+                
+                 valor_lon.setText(String.valueOf(df.format(newValue.getLongitude())) +
+                        " " + newValue.getLongitudeHemisphere());
             });
         });
         
-        model.LONProperty().addListener((observable, oldValue, newValue)-> {
-            String dat = String.valueOf(df.format(newValue));
-            Platform.runLater(() -> {
-                valor_lon.setText(dat);
-            });
-        });
+      
+        
          
         model.COGProperty().addListener((observable, oldValue, newValue)-> {
             String dat = String.valueOf(newValue) + "";

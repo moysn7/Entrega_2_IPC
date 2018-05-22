@@ -12,7 +12,9 @@ import java.io.InputStream;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import net.sf.marineapi.nmea.event.AbstractSentenceListener;
 import net.sf.marineapi.nmea.io.SentenceReader;
 import net.sf.marineapi.nmea.sentence.HDGSentence;
@@ -21,6 +23,7 @@ import net.sf.marineapi.nmea.sentence.MWVSentence;
 import net.sf.marineapi.nmea.sentence.RMCSentence;
 import net.sf.marineapi.nmea.sentence.XDRSentence;
 import net.sf.marineapi.nmea.util.Measurement;
+import net.sf.marineapi.nmea.util.Position;
 
 /**
  *
@@ -88,14 +91,10 @@ public class Model {
     
     // -------------DATOS REFERENTES AL GPS ----------------------- //
 
-    private final DoubleProperty LAT = new SimpleDoubleProperty();
-    public DoubleProperty LATProperty(){
-        return LAT;
-    }
     
-    private final DoubleProperty LON = new SimpleDoubleProperty();
-    public DoubleProperty LONProperty(){
-        return LON;
+    private final ObjectProperty<Position> GPS = new SimpleObjectProperty();
+    public ObjectProperty<Position> GPSproperty(){
+        return GPS;
     }
     
     private final DoubleProperty COG = new SimpleDoubleProperty();
@@ -162,10 +161,7 @@ public class Model {
         public void sentenceRead(RMCSentence sentence){
             //LATITUD
             
-            LAT.set(sentence.getPosition().getLatitude());
-            
-            //LONGITUD
-            LON.set(sentence.getPosition().getLongitude());
+            GPS.set(sentence.getPosition());
             
             //COURSE OVER GROUND
             COG.set(sentence.getCourse());
